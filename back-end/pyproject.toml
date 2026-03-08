@@ -1,5 +1,5 @@
 [project]
-name = "be"
+name = "back-end"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -8,6 +8,5 @@ dependencies = []
 
 [dependency-groups]
 dev = [
-    "pre-commit==4.2.0",
     "ruff==0.12.1",
 ]

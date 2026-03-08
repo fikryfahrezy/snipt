@@ -1,0 +1,8 @@
+services:
+  fe:
+    build:
+      dockerfile: ./Dockerfile
+      args:
+        PORT: 3000
+    ports:
+      - "3000:3000"
