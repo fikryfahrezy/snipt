@@ -14,3 +14,5 @@ helm-charts
 .idea
 coverage*
 .DS_Store
+# Exclude the project virtual environment from image builds
+.venv

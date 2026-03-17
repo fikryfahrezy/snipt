@@ -1,3 +1,4 @@
+# Ref: https://github.com/astral-sh/uv-docker-example/blob/main/multistage.Dockerfile
 # An example using multi-stage image builds to create a final image without uv.
 
 # First, build the application in the `/app` directory.
@@ -47,4 +48,4 @@ USER nonroot
 WORKDIR /app
 
 # Run the FastAPI application by default
-CMD ["fastapi", "run", "--host", "0.0.0.0", "src/uv_docker_example"]
+CMD ["fastapi", "run", "--host", "0.0.0.0", "--port", "8000", "src/snipt"]
