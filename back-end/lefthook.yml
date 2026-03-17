@@ -2,11 +2,11 @@ pre-commit:
   parallel: true
   jobs:
     - root: "back-end/"
-      stage_fixed: true
       glob:
         - "*.py"
       group:
         piped: true
         jobs:
           - run: uvx ruff format {staged_files}
+            stage_fixed: true
           - run: uvx ruff check {staged_files}
