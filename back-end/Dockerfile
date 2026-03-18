@@ -27,6 +27,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 # Then, use a final image without uv
 FROM python:3.13-slim-bookworm
+
+# Install ca-certificates and curl for health checks
+RUN apt-get update && \
+    apt-get install -y ca-certificates curl tzdata && \
+    rm -rf /var/lib/apt/lists/*
+
 # It is important to use the image that matches the builder, as the path to the
 # Python executable must be the same, e.g., using `python:3.11-slim-bookworm`
 # will fail.
