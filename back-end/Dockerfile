@@ -47,5 +47,8 @@ USER nonroot
 # Use `/app` as the working directory
 WORKDIR /app
 
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/docs || exit 1
+
 # Run the FastAPI application by default
 CMD ["fastapi", "run", "--host", "0.0.0.0", "--port", "8000", "src/snipt"]
