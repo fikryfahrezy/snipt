@@ -1,6 +1,14 @@
 services:
-  fe:
+  front-end:
     build:
+      context: .
       dockerfile: ./Dockerfile
-      args:
-        PORT: 3000
+    restart: unless-stopped
+    env_file:
+      - path: ./.env
+        required: true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
